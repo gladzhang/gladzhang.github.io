@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 写下你想做的事情
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='content') 说点什么:
+      input#content.form-control(type='text',autocomplete="off" placeholder='计划、吐槽、心事、愿望等' name='content' required='true' value=(undefined===thing ? '' : thing.content) )
+      label(for='tag') 用几句简单的话备注一下，以后找的时候比较容易:
+      input#tag.form-control(type='text',autocomplete="off" placeholder='简单的备注，比如：去西藏玩' name='tag' required='true' value=(undefined===thing ? '' : thing.tag) )
+    button.btn.btn-primary(type='submit') 提交
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

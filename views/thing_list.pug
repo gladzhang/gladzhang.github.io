@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 想要一起做很多很多事情
+  
+  ul
+  each thing in thing_list
+    li 
+      a(href=thing.url) #{thing.tag}
+      | (#{thing.time_now}) 
+
+  else
+    li 暂时没有想做的事情呢，赶紧写点吧
